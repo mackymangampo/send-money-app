@@ -19,7 +19,7 @@ This project is a starting point for a Flutter application.
    Clone this repository to your local machine using:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mackymangampo/send-money-app.git
    ```
 
 2. **Navigate to the Project Directory**
@@ -27,7 +27,7 @@ This project is a starting point for a Flutter application.
    Change into the project directory:
 
    ```bash
-   cd <project-directory>
+   cd local-machine-name/send-money-app
    ```
 
 3. **Install Dependencies**
@@ -35,7 +35,7 @@ This project is a starting point for a Flutter application.
    Run the following command to install the necessary dependencies:
 
    ```bash
-   dart pub get
+   flutter clean & flutter pub get
    ```
 
 ## Running Unit Tests
