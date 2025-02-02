@@ -21,15 +21,25 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
+# Visual Studio Code related
+.classpath
+.project
+.settings/
+
 # Flutter/Dart/Pub related
 **/doc/api/
-**/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+**/generated_plugin_registrant.dart
+.packages
 .pub-cache/
 .pub/
-/build/
+build/
+flutter_*.png
+linked_*.ds
+unlinked.ds
+unlinked_spec.ds
 
 # Symbolication related
 app.*.symbols
@@ -41,3 +51,26 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# generated files
+*.g.dart
+*.mocks.dart
+*.config.dart
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+
+# this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+ Packages/
+ Package.pins
+ Package.resolved
+ *.xcodeproj
+
+# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
+# hence it is not needed unless you have added a package configuration file to your project
+ .swiftpm
+
+.build/

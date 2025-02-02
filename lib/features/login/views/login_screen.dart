@@ -145,32 +145,38 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // Add to business logic in provider.
   void _login(BuildContext context) {
-    final username = _usernameController.text;
-    final password = _passwordController.text;
+    String? username = _usernameController.text;
+    String? password = _passwordController.text;
 
     /// Show progress dialog
     ProgressOverlayService().show(
         context: context,
 
         /// login functionalty using provider
-        builder: () => context.read<LoginProvider>().login(
-              context: context,
-              username: username,
-              password: password,
-              onFailed: () {
-                NotificationService().notifyWithScaffold(
-                    context: context,
-                    message: 'Username or Password is doesn`t matched...',
-                    bgColor: Colors.grey);
-              },
-              onComplete: () {
-                Navigator.pushReplacement(
+        builder: () async {
+          if ((username.isEmpty) || (password.isEmpty)) {
+            return NotificationService().notifyWithScaffold(
+                context: context,
+                message: 'Username or Password is missing.',
+                bgColor: Colors.red);
+          }
+
+          return context.read<LoginProvider>().login(
+                username: username,
+                password: password,
+                onFailed: () {
+                  NotificationService().notifyWithScaffold(
+                      context: context,
+                      message: 'Username or Password is doesn`t matched...',
+                      bgColor: Colors.grey);
+                },
+                onComplete: () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const HomeScreen(),
                   ),
-                );
-              },
-            ));
+                ),
+              );
+        });
   }
 }
